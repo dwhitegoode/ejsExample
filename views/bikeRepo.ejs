@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <style>
+        table {
+                font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: .5in;
+}
+
+h1 {
+	text-align: center;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+table {
+	counter-reset: rowNumber -1;
+}
+
+table tr {
+	counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+	content: counter(rowNumber);
+	min-width: 1em;
+	margin-right: 0.5em;
+              
+            }
+        
+        </style>
+    </head>
+    <body>
+        <h1>Motorcycle List</h1>
+
+        <table>
+            <tr>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Style</th>
+                <th>Engine</th>
+                <th>HP</th>
+                <th>Weight</th>
+                <th>Tank Size</th>
+                <th>Fuel Economy</th>
+                <th>Seat Height</th>
+                <th>Price</th>
+                <th>Location</th>
+            </tr>
+            <% d.forEach( (e)=> { %>
+            <tr>
+                <td><%= e.brand %></td>
+                <td><%= e.model %></td>
+                <td><%= e.style %></td>
+                <td><%= e.engine %></td>
+                <td><%= e.horsepower %></td>
+                <td><%= e.weight %></td>
+                <td><%= e.tankcapacity %></td>
+                <td><%= e.fueleconomy %></td>
+                <td><%= e.seatHeight %></td>
+                <td>$<%= e.price %></td>
+                <td><%= e.location %></td>
+            </tr>
+            <% }) %> 
+        </table>
+    </body>
+</html>
